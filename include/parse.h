@@ -1,5 +1,6 @@
 #ifndef PARSE_H
 #define PARSE_H
+#include "dbentry.h"
 
 #define HEADER_MAGIC 0x4c4c4144
 
