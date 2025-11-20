@@ -127,13 +127,13 @@ int validate_db_header(int fd, struct dbheader_t **headerOut){
     if (header->version != 1){
         printf("Improper header version\n");
         free(header);
-        return -1;
+        return STATUS_ERROR;
     }
 
     if (header->magic != HEADER_MAGIC){
         printf("Improper header magic\n");
         free(header);
-        return -1;
+        return STATUS_ERROR;
     }
 
     struct stat dbstat = {0};
