@@ -10,6 +10,7 @@ void print_usage(char *argv[]){
 	printf("Usage: %s -n -f <database file>\n", argv[0]);
 	printf("\t -n - Create a new database file\n");
 	printf("\t -f - Path to Database file\n");
+	printf("\t -a - Add an employee to the database in the format Name,Address,Hours\n");
 	return;
 }
 
@@ -78,9 +79,7 @@ int main(int argc, char *argv[]){
 	}
 
 	if (addstring) {
-		dbhdr->count++;
-		employees = realloc(employees, dbhdr->count * (sizeof(struct employee_t)));
-		add_employee(dbhdr, employees, addstring);
+		add_employee(dbhdr, &employees, addstring);
 	}
 
 	output_file(dbfd, dbhdr, employees);
