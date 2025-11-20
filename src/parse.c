@@ -17,12 +17,12 @@ void output_file(int fd, struct dbheader_t *dbhdr){
 
     dbhdr->magic = htonl(dbhdr->magic);
     dbhdr->version = htons(dbhdr->version);
-    dbhdr->count = htons(dbhdr->count);
+    dbhdr->count = htons(dbhdr->filesize);
     dbhdr->filesize = htonl(dbhdr->filesize);
 
     lseek(fd, 0, SEEK_SET);
     write(fd, dbhdr, sizeof(struct dbheader_t));
-    return STATUS_SUCCESS;
+    return;
 }
 
 int validate_db_header(int fd, struct dbheader_t **headerOut){
