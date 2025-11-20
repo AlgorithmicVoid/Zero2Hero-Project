@@ -11,6 +11,7 @@ void print_usage(char *argv[]){
 	printf("\t -n - Create a new database file\n");
 	printf("\t -f - Path to Database file\n");
 	printf("\t -a - Add an employee to the database in the format Name,Address,Hours\n");
+	printf("\t -l - List all employees in the database\n");
 	return;
 }
 
