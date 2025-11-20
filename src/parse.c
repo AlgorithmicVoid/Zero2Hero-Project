@@ -10,6 +10,9 @@
 
 
 int list_employees(struct dbheader_t *dbhdr, struct employee_t *employees){
+    if (NULL == dbhdr) return STATUS_ERROR;
+    if (NULL == employees) return STATUS_ERROR;
+    
     int i = 0;
     for (; i < dbhdr->count; i++){
         printf("Employee %d:\n", i);
@@ -141,7 +144,7 @@ int validate_db_header(int fd, struct dbheader_t **headerOut){
     if (header->filesize != dbstat.st_size){
         printf("Corrupted Database\n");
         free(header);
-        return -1;
+        return STATUS_ERROR;
     }
 
     *headerOut = header;
